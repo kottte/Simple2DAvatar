@@ -1,0 +1,13 @@
+[Window]
+Width=400
+Height=320
+
+[Image]
+Image1=sprites/image.png
+Image2=sprites/image2.png
+OffsetX=90
+OffsetY=60
+Scale=1.4
+
+[Audio]
+Threshold=-30.0
