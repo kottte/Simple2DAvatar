@@ -24,6 +24,7 @@ set(wxUSE_PROPGRID     OFF CACHE BOOL "" FORCE)
 set(wxUSE_RICHTEXT     OFF CACHE BOOL "" FORCE)
 set(wxUSE_MEDIACTRL    OFF CACHE BOOL "" FORCE)
 set(wxUSE_WXHTML_HELP  OFF CACHE BOOL "" FORCE)
+set(wxUSE_HTML OFF CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(wxWidgets)
 
@@ -83,5 +84,6 @@ if(APPLE)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_STRIP} -u -r $<TARGET_FILE:${PROJECT_NAME}>
         COMMENT "Stripping binary for macOS"
+        COMMAND codesign --force --deep --sign - $<TARGET_BUNDLE_DIR:${PROJECT_NAME}>
     )
 endif()
